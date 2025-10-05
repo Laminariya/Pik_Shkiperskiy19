@@ -71,7 +71,6 @@ public class OsobennostyPanel : MonoBehaviour
         _allPanels.AddRange(parkovki);
         _allPanels.AddRange(ingeneriya);
         _allPanels.AddRange(umniesystemi);
-        Debug.Log("CC "+_allPanels.Count);
         Hide();
     }
 

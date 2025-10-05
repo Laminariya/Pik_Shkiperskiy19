@@ -14,7 +14,6 @@ public class SpashalImageClass : MonoBehaviour
         b_Click.onClick.AddListener(OnClick);
         imageDown = GetComponent<Image>();
         imageUp = GetComponentsInChildren<Image>(true)[1];
-        Debug.Log("XXX");
     }
 
     public void Show()

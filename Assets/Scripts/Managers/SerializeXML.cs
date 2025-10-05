@@ -55,7 +55,19 @@ public class SerializeXML : MonoBehaviour
             // {
             //     Debug.Log(obj.Id);
             // }
+            reader.Close();
         }
+        result.Dispose();
+        serializer = null;
+
+        // foreach (var objectClass in _feedClass.Objects)
+        // {
+        //     if (objectClass.BuildingSection == "Корпус 1" && objectClass.ApartmentNumber == 167)
+        //     {
+        //         Debug.Log(objectClass.Name);
+        //     }
+        // }
+        
     }
 
 }
@@ -166,12 +178,12 @@ public class SerializeXML : MonoBehaviour
         [XmlElement("photo")] public string Photo;
     }
     
-    [Serializable]
-    public class Coordinates
-    {
-        [XmlElement("Lat")] public string Lat;
-        [XmlElement("Lng")] public string Lng;
-    }
+    // [Serializable]
+    // public class Coordinates
+    // {
+    //     [XmlElement("Lat")] public string Lat;
+    //     [XmlElement("Lng")] public string Lng;
+    // }
     
     [Serializable]
     public class Benefits
@@ -197,11 +209,11 @@ public class SerializeXML : MonoBehaviour
         [XmlElement("minMonthFee")] public string MinMonthFee;
     }
     
-    [Serializable]
-    public class Phones
-    {
-        [XmlElement("PhoneSchema")] public List<PhoneSchema> PhoneSchema = new List<PhoneSchema>();
-    }
+    // [Serializable]
+    // public class Phones
+    // {
+    //     [XmlElement("PhoneSchema")] public List<PhoneSchema> PhoneSchema = new List<PhoneSchema>();
+    // }
     
     [Serializable]
     public class PhoneSchema
@@ -221,11 +233,11 @@ public class SerializeXML : MonoBehaviour
         [XmlElement("section")] public string Section;
     }
 
-    [Serializable]
-    public class Developer
-    {
-        [XmlElement("Name")] public string Name;
-    }
+    // [Serializable]
+    // public class Developer
+    // {
+    //     [XmlElement("Name")] public string Name;
+    // }
     
     [Serializable]
     public class Area
@@ -249,11 +261,11 @@ public class SerializeXML : MonoBehaviour
         [XmlElement("image10")] public string Image10;
     }
     
-    [Serializable]
-    public class RoomDefinitions
-    {
-        [XmlElement("Room")] public List<Room> Room;
-    }
+    // [Serializable]
+    // public class RoomDefinitions
+    // {
+    //     [XmlElement("Room")] public List<Room> Room;
+    // }
     
     [Serializable]
     public class Room
@@ -261,17 +273,17 @@ public class SerializeXML : MonoBehaviour
         [XmlElement("Area")] public float Area;
     }
     
-    [Serializable]
-    public class Building
-    {
-        [XmlElement("FloorsCount")] public int FloorsCount;
-        [XmlElement("CeilingHeight")] public float CeilingHeight;
-        [XmlElement("PassengerLiftsCount")] public int PassengerLiftsCount;
-        [XmlElement("CargoLiftsCount")] public int CargoLiftsCount;
-        [XmlElement("Parking")] public Parking Parking;
-        [XmlElement("Deadline")] public Deadline Deadline;
-        [XmlElement("MaterialType")] public string MaterialType;
-    }
+    // [Serializable]
+    // public class Building
+    // {
+    //     [XmlElement("FloorsCount")] public int FloorsCount;
+    //     [XmlElement("CeilingHeight")] public float CeilingHeight;
+    //     [XmlElement("PassengerLiftsCount")] public int PassengerLiftsCount;
+    //     [XmlElement("CargoLiftsCount")] public int CargoLiftsCount;
+    //     [XmlElement("Parking")] public Parking Parking;
+    //     [XmlElement("Deadline")] public Deadline Deadline;
+    //     [XmlElement("MaterialType")] public string MaterialType;
+    // }
     
     [Serializable]
     public class Parking
@@ -287,28 +299,28 @@ public class SerializeXML : MonoBehaviour
         [XmlElement("IsComplete")] public bool IsComplete;
     }
 
-    [Serializable]
-    public class BargainTerms
-    {
-        [XmlElement("Price")] public int Price;
-        [XmlElement("Currency")] public string Currency;
-        [XmlElement("SaleType")] public string SaleType;
-        [XmlElement("MortgageAllowed")] public bool MortgageAllowed;
-        [XmlElement("ActionId")] public int ActionId;
-    }
+    // [Serializable]
+    // public class BargainTerms
+    // {
+    //     [XmlElement("Price")] public int Price;
+    //     [XmlElement("Currency")] public string Currency;
+    //     [XmlElement("SaleType")] public string SaleType;
+    //     [XmlElement("MortgageAllowed")] public bool MortgageAllowed;
+    //     [XmlElement("ActionId")] public int ActionId;
+    // }
     
-    [Serializable]
-    public class LayoutPhoto
-    {
-        [XmlElement("FullUrl")] public string FullUrl;
-        [XmlElement("IsDefault")] public bool IsDefault;
-    }
+    // [Serializable]
+    // public class LayoutPhoto
+    // {
+    //     [XmlElement("FullUrl")] public string FullUrl;
+    //     [XmlElement("IsDefault")] public bool IsDefault;
+    // }
     
-    [Serializable]
-    public class Photos
-    {
-        [XmlElement("PhotoSchema")] public List<PhotoSchema> PhotoSchema = new List<PhotoSchema>();
-    }
+    // [Serializable]
+    // public class Photos
+    // {
+    //     [XmlElement("PhotoSchema")] public List<PhotoSchema> PhotoSchema = new List<PhotoSchema>();
+    // }
     
     [Serializable]
     public class PhotoSchema
