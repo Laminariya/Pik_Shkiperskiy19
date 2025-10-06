@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +8,22 @@ public class StartPanel : MonoBehaviour
     
     public Button b_Galereya;
     public Button b_Osobennosty;
+
+    public Button b_Demo;
+    public Button b_Light;
+
+    public Sprite LightOff;
+    public Sprite LightOn;
+    public Sprite DemoOff;
+    public Sprite DemoOn;
     
     public void Init()
     {
         _manager = GameManager.instance;
         b_Galereya.onClick.AddListener(OnGalereyaClick);
         b_Osobennosty.onClick.AddListener(OnOsobennostyClick);
+        b_Demo.onClick.AddListener(OnDemoClick);
+        b_Light.onClick.AddListener(OnLightClick);
     }
 
     private void OnGalereyaClick()
@@ -29,5 +36,32 @@ public class StartPanel : MonoBehaviour
         _manager.osobennostyPanel.Show();
     }
 
+    private void OnDemoClick()
+    {
+        if (b_Demo.image.sprite == DemoOn)
+        {
+            //Выключаем демо
+            b_Demo.image.sprite = DemoOn;
+        }
+        else
+        {
+            b_Demo.image.sprite = DemoOff;
+            //Включаем демо
+        }
+    }
+
+    public void OnLightClick()
+    {
+        if (b_Light.image.sprite == LightOn)
+        {
+            //Выключаем подсветку
+            b_Light.image.sprite = LightOn;
+        }
+        else
+        {
+            b_Light.image.sprite = LightOff;
+            //Включаем подсветку
+        }
+    }
 
 }

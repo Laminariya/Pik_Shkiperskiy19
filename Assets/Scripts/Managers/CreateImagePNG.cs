@@ -2,12 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
-using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.UI;
-using Color = UnityEngine.Color;
 using Image = UnityEngine.UI.Image;
 
 public class CreateImagePNG : MonoBehaviour
@@ -25,7 +22,7 @@ public class CreateImagePNG : MonoBehaviour
 
     private GameManager _manager;
     private List<Sprite> _sprites = new List<Sprite>();
-
+    private int _spriteIndex = 0;
 
 
     public IEnumerator Init()
@@ -86,6 +83,7 @@ public class CreateImagePNG : MonoBehaviour
         Debug.Log("Checking plane END");
     }
 
+    
 
 
     //Загрузили с сервера картинку
@@ -151,10 +149,20 @@ public class CreateImagePNG : MonoBehaviour
         {
             yield return www;
             Texture2D texture2D = www.texture;
+            texture2D.Compress(false);
             Sprite _sprite = Sprite.Create(texture2D, new Rect(0.0f, 0.0f, texture2D.width, texture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             myObject.PlanSprite = _sprite;
+            _sprites.Add(_sprite);
         }
         
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _spriteIndex++;
+            ImageTest.sprite = _sprites[_spriteIndex];
+        }
+    }
 }
