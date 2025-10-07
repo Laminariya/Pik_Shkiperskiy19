@@ -34,7 +34,7 @@ public class MyDataClass : MonoBehaviour
 
         foreach (var house in nameHouse)
         {
-            //Debug.Log(house);
+            Debug.Log(house);
             MyBuilding building = new MyBuilding();
            
             foreach (var objectClass in _manager.Feed.Objects)
@@ -135,7 +135,7 @@ public class MyBuilding
 [Serializable]
 public class MyObject
 {
-    public MyBuilding Building;
+    //public MyBuilding Building;
     public ObjectClass ObjectClass;
     public int CountRooms;
     public float Area;

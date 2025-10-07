@@ -8,6 +8,7 @@ public class StartPanel : MonoBehaviour
     
     public Button b_Galereya;
     public Button b_Osobennosty;
+    public Button b_ChoseFlat;
 
     public Button b_Demo;
     public Button b_Light;
@@ -24,6 +25,7 @@ public class StartPanel : MonoBehaviour
         b_Osobennosty.onClick.AddListener(OnOsobennostyClick);
         b_Demo.onClick.AddListener(OnDemoClick);
         b_Light.onClick.AddListener(OnLightClick);
+        b_ChoseFlat.onClick.AddListener(OnChoseFlatClick);
     }
 
     private void OnGalereyaClick()
@@ -62,6 +64,11 @@ public class StartPanel : MonoBehaviour
             b_Light.image.sprite = LightOff;
             //Включаем подсветку
         }
+    }
+
+    private void OnChoseFlatClick()
+    {
+        _manager.choseOnParameterPanel.Show();
     }
 
 }

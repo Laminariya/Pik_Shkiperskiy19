@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +23,7 @@ public class CartFlatPrefab : MonoBehaviour
         Image.sprite = _myObject.PlanSprite;
         RoomsArea.text = _myObject.CountRooms + " комнатная, " + _myObject.Area + " м" + GameManager.instance.SymvolQuadro;
         Price.text = GameManager.instance.GetSplitPrice(_myObject.Price) + " " + GameManager.instance.SymvolRuble;
-        OldPrice.text = "<s>123</s>";
+        OldPrice.text = ""; //"<s>123</s>";
         PricePerMeter.text = Mathf.RoundToInt(_myObject.Price / _myObject.Area) + " за м" + GameManager.instance.SymvolQuadro;
         KorpusFloor.text = "Корпус " + _myObject.Korpus + ", Этаж " + _myObject.Floor + " из " + _myObject.CountFloor;
     }
@@ -33,6 +31,11 @@ public class CartFlatPrefab : MonoBehaviour
     private void OnClick()
     {
         GameManager.instance.flatPanel.Show(_myObject);
+    }
+    
+    public void OnSendMessageOnComPort()
+    {
+        GameManager.instance.MessageOnFlat(_myObject.Korpus,1,_myObject.Number);
     }
 
 }
