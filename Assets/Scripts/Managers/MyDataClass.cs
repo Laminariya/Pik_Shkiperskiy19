@@ -7,6 +7,8 @@ using UnityEngine;
 public class MyDataClass : MonoBehaviour
 {
 
+    public List<SendNumberFlat> SendNumberFlats = new List<SendNumberFlat>();
+    
     private GameManager _manager;
     private MyData _myData;
     private string _nameJK = "Шкиперский 19";
@@ -27,7 +29,6 @@ public class MyDataClass : MonoBehaviour
         {
             if (objectClass.BuildingName==_nameJK && !nameHouse.Contains(objectClass.BuildingSection))
             {
-                //Debug.Log(objectClass.BuildingSection);
                 nameHouse.Add(objectClass.BuildingSection);
             }
         }
@@ -41,8 +42,18 @@ public class MyDataClass : MonoBehaviour
             {
                 if (objectClass.BuildingName==_nameJK && objectClass.BuildingSection==house)
                 {
+                    Debug.Log("ZZ: " + objectClass.Location.Korpus + " " + objectClass.Location.Section + " " + objectClass.ApartmentNumber);
                     MyObject myObject = new MyObject(objectClass);
                     building.MyObjects.Add(myObject);
+                    foreach (var numberFlat in _manager.myDataClass.SendNumberFlats)
+                    {
+                        if (numberFlat.Korpus == myObject.Korpus && myObject.Number >= numberFlat.StartFlat &&
+                            myObject.Number <= numberFlat.FinishFlat)
+                        {
+                            myObject.SendHouse = numberFlat.House;
+                            myObject.SendPorch = numberFlat.Porch;
+                        }
+                    }
                 }
             }
           
@@ -135,7 +146,6 @@ public class MyBuilding
 [Serializable]
 public class MyObject
 {
-    //public MyBuilding Building;
     public ObjectClass ObjectClass;
     public int CountRooms;
     public float Area;
@@ -159,6 +169,9 @@ public class MyObject
     public string BuioldingName;
     public string BuioldingSection;
 
+    public int SendHouse;
+    public int SendPorch;
+
     public MyObject(ObjectClass objectClass)
     {
         ObjectClass = objectClass;
@@ -179,22 +192,23 @@ public class MyObject
         Status = ObjectClass.Status;
         Section = 1;
         BuioldingSection = ObjectClass.BuildingSection;
-        // if (ObjectClass.Decoration == "without")
-        //     Decoration = "Без отделки";
-        // else if (ObjectClass.Decoration == "preFine")
-        // {
-        //     Decoration = "Whitebox";
-        // }
-        // else
-        // {
-        //     Decoration = "";
-        // }
 
         string id = Korpus + "_" + Number;
         PathFurniture = Directory.GetCurrentDirectory() + "//Plans//PlanApartmentFurns//" + id + ".png";
         PathFloor = Directory.GetCurrentDirectory() + "//Plans//PlanFloors//" + id + ".png";
+        
     }
 
+}
+
+[Serializable]
+public class SendNumberFlat
+{
+    public int Korpus;
+    public int House;
+    public int Porch;
+    public int StartFlat;
+    public int FinishFlat;
 }
 
 

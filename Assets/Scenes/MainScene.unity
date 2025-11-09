@@ -22147,6 +22147,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699ed8e34cb0cd5408e2d17c7b9f28b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SendNumberFlats:
+  - Korpus: 2
+    House: 3
+    Porch: 1
+    StartFlat: 1
+    FinishFlat: 111
+  - Korpus: 2
+    House: 3
+    Porch: 2
+    StartFlat: 113
+    FinishFlat: 157
+  - Korpus: 2
+    House: 3
+    Porch: 3
+    StartFlat: 158
+    FinishFlat: 242
+  - Korpus: 2
+    House: 3
+    Porch: 4
+    StartFlat: 243
+    FinishFlat: 288
+  - Korpus: 2
+    House: 3
+    Porch: 5
+    StartFlat: 289
+    FinishFlat: 401
+  - Korpus: 2
+    House: 4
+    Porch: 1
+    StartFlat: 402
+    FinishFlat: 459
+  - Korpus: 2
+    House: 4
+    Porch: 2
+    StartFlat: 460
+    FinishFlat: 516
+  - Korpus: 1
+    House: 1
+    Porch: 1
+    StartFlat: 518
+    FinishFlat: 632
+  - Korpus: 1
+    House: 1
+    Porch: 2
+    StartFlat: 633
+    FinishFlat: 787
+  - Korpus: 1
+    House: 1
+    Porch: 3
+    StartFlat: 1
+    FinishFlat: 112
+  - Korpus: 1
+    House: 1
+    Porch: 4
+    StartFlat: 113
+    FinishFlat: 250
+  - Korpus: 1
+    House: 2
+    Porch: 1
+    StartFlat: 251
+    FinishFlat: 354
+  - Korpus: 1
+    House: 2
+    Porch: 2
+    StartFlat: 355
+    FinishFlat: 517
 --- !u!114 &2085520323
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,7 +59,7 @@ public class SerializeXML : MonoBehaviour
             reader.Close();
         }
 
-        _manager.InfoStartPanel.text += "\r Load Feed Complete";
+        _manager.InfoStartPanel.text += "\r\nLoad Feed Complete";
         result.Dispose();
         serializer = null;
 

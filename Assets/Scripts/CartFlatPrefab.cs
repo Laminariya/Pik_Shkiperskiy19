@@ -37,7 +37,7 @@ public class CartFlatPrefab : MonoBehaviour
     
     public void OnSendMessageOnComPort()
     {
-        GameManager.instance.MessageOnFlat(_myObject.Korpus,1,_myObject.Number);
+        GameManager.instance.MessageOnFlat(_myObject.SendHouse,_myObject.SendPorch,_myObject.Number);
     }
 
 }
