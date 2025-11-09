@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour
     
     private async Task LoadJSON()
     {
+        loadPanel.SetActive(true);
+        InfoStartPanel.text = "Load Feed...";
+        
         serializeXML = FindObjectOfType<SerializeXML>(true);
         galereyaPanel = FindObjectOfType<GalereyaPanel>(true);
         startPanel = FindObjectOfType<StartPanel>(true);
@@ -50,7 +53,7 @@ public class GameManager : MonoBehaviour
         flatPanel = FindObjectOfType<FlatPanel>(true);
         choseOnParameterPanel = FindObjectOfType<ChoseOnParameterPanel>(true);
         
-        await serializeXML.Init();
+        await serializeXML.Init(this);
         
         galereyaPanel.Init();
         startPanel.Init();
@@ -61,52 +64,27 @@ public class GameManager : MonoBehaviour
         choseOnParameterPanel.Init();
         StartCoroutine(StartGame());
 
+        int countFlat = 0;
+        int countFloor = 0;
         foreach (var building in MyData.Buildings)
         {
-            //Debug.Log("XX: "+ building.Korpus + " " + building.MyObjects.Count);
             foreach (var myObject in building.MyObjects)
             {
-                // if (myObject.Number == 221)
-                // {
-                //     Debug.Log(myObject.CountRooms);
-                //     Debug.Log(myObject.ObjectClass.Type);
-                //     Debug.Log(myObject.ObjectClass.Category);
-                //     Debug.Log(myObject.ObjectClass.Name);
-                //     Debug.Log(myObject.ObjectClass.Studio);
-                // }
-                // if (myObject.Number == 56)
-                // {
-                //     Debug.Log(myObject.CountRooms);
-                //     Debug.Log(myObject.ObjectClass.Type);
-                //     Debug.Log(myObject.ObjectClass.Category);
-                //     Debug.Log(myObject.ObjectClass.Name);
-                //     Debug.Log(myObject.ObjectClass.Studio);
-                // }
-                // if (myObject.Number == 227)
-                // {
-                //     Debug.Log(myObject.CountRooms);
-                //     Debug.Log(myObject.ObjectClass.Type);
-                //     Debug.Log(myObject.ObjectClass.Category);
-                //     Debug.Log(myObject.ObjectClass.Name);
-                //     Debug.Log(myObject.ObjectClass.Studio);
-                // }
-                //Debug.Log(myObject.CountRooms);
+                if (myObject.Number == 113)
+                {
+                    Debug.Log(myObject.ObjectClass.PropertyType);
+                    Debug.Log(myObject.ObjectClass.Category);
+                    Debug.Log(myObject.ObjectClass.Studio);
+                }
             }
+            
         }
 
     }
 
-    // private void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.A))
-    //     {
-    //         flatPanel.Show(MyData.Buildings[0].MyObjects[5]);
-    //     }
-    // }
-
     IEnumerator StartGame()
     {
-        loadPanel.SetActive(true);
+        
         Debug.Log("Load Panel");
         yield return StartCoroutine(createImagePng.Init());
         yield return StartCoroutine(myDataClass.CreateSprites());

@@ -40,14 +40,21 @@ public class FlatPanel : MonoBehaviour
         _myObject = myObject;
         gameObject.SetActive(true);
 
-        Image.sprite = _myObject.PlanSprite;
+        //Image.sprite = _myObject.FlatSprite;
         //TODO грузим спрайт этажа асинхронно
         RoomsArea.text = _myObject.CountRooms + " комнатная, " + _myObject.Area + " м" + _manager.SymvolQuadro;
+        if(_myObject.CountRooms==0)
+            RoomsArea.text = "Студия, " + _myObject.Area + " м" + _manager.SymvolQuadro;
         Price.text = _manager.GetSplitPrice(_myObject.Price) + " " + _manager.SymvolRuble;
-        OldPrice.text = "<s>123</s>";
+        OldPrice.text = "";// "<s>123</s>";
         PricePerMeter.text = Mathf.RoundToInt(_myObject.Price / _myObject.Area).ToString() + " за м" + _manager.SymvolQuadro;
         Floor.text = _myObject.Floor + " из " + _myObject.CountFloor;
         Korpus.text = _myObject.Korpus.ToString();
+        OnPlanerClick();
+        Debug.Log(myObject.PathFurniture);
+        Debug.Log(myObject.PathFloor);
+        Debug.Log(myObject.UrlFurniture);
+        Debug.Log(myObject.UrlFloor);
     }
 
     public void Hide()
@@ -60,7 +67,12 @@ public class FlatPanel : MonoBehaviour
         b_Planer.enabled = false;
         b_Floor.enabled = true;
         ButtonPanel.sprite = PlanerActive;
-        Image.sprite = _myObject.PlanSprite;
+        if (_myObject.FlatSprite != null)
+            Image.sprite = _myObject.FlatSprite;
+        else
+        {
+            Image.sprite = _spriteFloor;
+        }
     }
 
     private void OnFloorClick()
@@ -68,7 +80,8 @@ public class FlatPanel : MonoBehaviour
         b_Floor.enabled = false;
         b_Planer.enabled = true;
         ButtonPanel.sprite = FloorActive;
-        Image.sprite = _spriteFloor;
+        if (_myObject.FloorSprite != null) Image.sprite = _myObject.FloorSprite;
+        else Image.sprite = _spriteFloor;
     }
 
     private void OnBack()

@@ -14,7 +14,7 @@ public class OsobennostyPanel : MonoBehaviour
     public Button b_Genplan;
     public Button b_ViborKvartiri;
     public Button b_Galereya;
-    public Button b_Osobennosty;
+    //public Button b_Osobennosty;
 
     [Header("Верхнее меню")] 
     public Button b_Blagoustroystvo;
@@ -48,7 +48,6 @@ public class OsobennostyPanel : MonoBehaviour
         b_Genplan.onClick.AddListener(OnGenplan);
         b_ViborKvartiri.onClick.AddListener(OnViborKvartiri);
         b_Galereya.onClick.AddListener(OnGalereya);
-        b_Osobennosty.onClick.AddListener(OnOsobennosty);
         b_Lokaciya.onClick.AddListener(OnLokaciya);
         b_Blagoustroystvo.onClick.AddListener(OnBlagoustroystvo);
         b_Infrastruktura.onClick.AddListener(OnInfrastruktura);

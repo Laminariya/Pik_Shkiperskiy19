@@ -20,8 +20,10 @@ public class CartFlatPrefab : MonoBehaviour
         _myObject = myObject;
         _button = GetComponent<Button>();
         _button.onClick.AddListener(OnClick);
-        Image.sprite = _myObject.PlanSprite;
+        Image.sprite = _myObject.FlatSprite;
         RoomsArea.text = _myObject.CountRooms + " комнатная, " + _myObject.Area + " м" + GameManager.instance.SymvolQuadro;
+        if(_myObject.CountRooms==0)
+            RoomsArea.text = "Студия, " + _myObject.Area + " м" + GameManager.instance.SymvolQuadro;
         Price.text = GameManager.instance.GetSplitPrice(_myObject.Price) + " " + GameManager.instance.SymvolRuble;
         OldPrice.text = ""; //"<s>123</s>";
         PricePerMeter.text = Mathf.RoundToInt(_myObject.Price / _myObject.Area) + " за м" + GameManager.instance.SymvolQuadro;

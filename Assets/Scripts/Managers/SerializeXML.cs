@@ -18,11 +18,12 @@ public class SerializeXML : MonoBehaviour
     
     //ссылка на json
     private string _url = "https://feed.storage-s3.ru/feed_flat_regions_new.xml";
-
+    private GameManager _manager;
     
     
-    public async Task Init()
+    public async Task Init(GameManager manager)
     {
+        _manager = manager;
         await LoadJSON(_url);
     }
 
@@ -50,13 +51,15 @@ public class SerializeXML : MonoBehaviour
             }
 
             GameManager.instance.Feed = _feedClass;
-            Debug.Log("XX "+_feedClass.Objects.Count);
+            //Debug.Log("XX "+_feedClass.Objects.Count);
             // foreach (var obj in _feedClass.Objects)
             // {
             //     Debug.Log(obj.Id);
             // }
             reader.Close();
         }
+
+        _manager.InfoStartPanel.text += "\r Load Feed Complete";
         result.Dispose();
         serializer = null;
 

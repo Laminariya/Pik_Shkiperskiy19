@@ -79,19 +79,28 @@ public class ChoseOnParameterPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void ShowKorpus1()
+    {
+        Show();
+        _Korpus1 = 1;
+        _Korpus2 = -1;
+        b_Korpus1.image.color = Color.white;
+        b_Korpus2.image.color = Color.clear;
+    }
+
+    public void ShowKorpus2()
+    {
+        Show();
+        _Korpus1 = -1;
+        _Korpus2 = 2;
+        b_Korpus1.image.color = Color.clear;
+        b_Korpus2.image.color = Color.white;
+    }
+    
     private void OnShowClick()
     {
-        // foreach (var myBuilding in _manager.MyData.Buildings)
-        // {
-        //     foreach (var myObject in myBuilding.MyObjects)  
-        //     {
-        //         CartFlatPrefab cart = Instantiate(CartFlatPrefab, PrefabParent).GetComponent<CartFlatPrefab>();
-        //         cart.Init(myObject);
-        //         _cartFlatPrefabs.Add(cart);
-        //     }
-        // }
         GameManager.instance.MessageOffAllLight();
-        
+        Debug.Log(_1 + " " + _2 + " " + _3 + " " + _St);
         for (int i = 0; i < _cartFlatPrefabs.Count; i++)
         {
             Destroy(_cartFlatPrefabs[i].gameObject);
@@ -124,12 +133,14 @@ public class ChoseOnParameterPanel : MonoBehaviour
     private void OnResetClick()
     {
         _St = 0;
-        _1 = 1;
-        _2 = 2;
-        _3 = 3;
+        _1 = -1;
+        _2 = -1;
+        _3 = -1;
         _Korpus1 = 1;
         _Korpus2 = 2;
-        b_St.image.color = Color.clear;
+        b_Korpus1.image.color = Color.white;
+        b_Korpus2.image.color = Color.white;
+        b_St.image.color = Color.white;
         b_1.image.color = Color.clear;
         b_2.image.color = Color.clear;
         b_3.image.color = Color.clear;

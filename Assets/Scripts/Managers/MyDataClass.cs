@@ -101,7 +101,7 @@ public class MyDataClass : MonoBehaviour
         {
             foreach (var myObject in building.MyObjects)
             {
-                yield return StartCoroutine(_manager.createImagePng.LoadSpritePNG(myObject));
+                yield return StartCoroutine(_manager.createImagePng.LoadSpriteFromUrl(myObject));
                 count2++;
                 _manager.InfoStartPanel.text = str + "\r\n" + "Load Image: " +count2 + "/" + count;
             }
@@ -151,7 +151,8 @@ public class MyObject
     public string PathFurniture;
     public string PathFloor;
     public bool IsFree;
-    public Sprite PlanSprite;
+    public Sprite FlatSprite;
+    public Sprite FloorSprite;
     public string Decoration;
     public int NumberOnFloor;
     public int Status;
@@ -162,6 +163,8 @@ public class MyObject
     {
         ObjectClass = objectClass;
         CountRooms = ObjectClass.Rooms;
+        if(objectClass.Studio=="true")
+            CountRooms = 0;
         Area = ObjectClass.Area.Value;
         string[] split = ObjectClass.BuildingSection.Split(" ");
         Korpus = int.Parse(split[1]);

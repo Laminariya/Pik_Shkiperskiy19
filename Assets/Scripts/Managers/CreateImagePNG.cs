@@ -38,7 +38,7 @@ public class CreateImagePNG : MonoBehaviour
         if(!Directory.Exists(Directory.GetCurrentDirectory()+PlaneApartmentFurn))
             CreateFolder(Directory.GetCurrentDirectory()+PlaneApartmentFurn);
         
-        yield return StartCoroutine(CheckPlane());
+        //yield return StartCoroutine(CheckPlane());
         yield return null;
     }
 
@@ -92,9 +92,7 @@ public class CreateImagePNG : MonoBehaviour
         Debug.Log("LoadFileFromUrl");
         UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();
-        
-        
-        
+
         Debug.Log("Изображение загружено");
         yield return StartCoroutine(CreatePNG(pathPlane, www.downloadHandler.data));
     }
@@ -151,10 +149,71 @@ public class CreateImagePNG : MonoBehaviour
             Texture2D texture2D = www.texture;
             texture2D.Compress(false);
             Sprite _sprite = Sprite.Create(texture2D, new Rect(0.0f, 0.0f, texture2D.width, texture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            myObject.PlanSprite = _sprite;
+            myObject.FlatSprite = _sprite;
             _sprites.Add(_sprite);
         }
         
+        url = "file://" + myObject.PathFloor;
+        
+        using (WWW www = new WWW(url))
+        {
+            yield return www;
+            Texture2D texture2D = www.texture;
+            texture2D.Compress(false);
+            Sprite _sprite = Sprite.Create(texture2D, new Rect(0.0f, 0.0f, texture2D.width, texture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            myObject.FloorSprite = _sprite;
+            _sprites.Add(_sprite);
+        }
+    }
+    
+    //Загрузили с сервера картинку
+    public IEnumerator LoadSpriteFromUrl(MyObject myObject)
+    {
+        //UnityWebRequest www = UnityWebRequest.Get(myObject.UrlFurniture);
+        //yield return www.SendWebRequest();
+        if (myObject.UrlFurniture != "")
+        {
+            using (WWW www = new WWW(myObject.UrlFurniture))
+            {
+                yield return www;
+                Texture2D texture2D = null;
+                try
+                {
+                    texture2D = www.texture;
+                    texture2D.Compress(false);
+                    Sprite _sprite = Sprite.Create(texture2D, new Rect(0.0f, 0.0f, texture2D.width, texture2D.height),
+                        new Vector2(0.5f, 0.5f), 100.0f);
+                    myObject.FlatSprite = _sprite;
+                    _sprites.Add(_sprite);
+                }
+                catch (Exception e)
+                {
+                    Debug.Log(e);
+                }
+            }
+        }
+        
+        //UnityWebRequest www2 = UnityWebRequest.Get(myObject.UrlFloor);
+        //yield return www2.SendWebRequest();
+
+        if (myObject.UrlFloor == "") yield break;
+        using (WWW www = new WWW(myObject.UrlFloor))
+        {
+            yield return www;
+            Texture2D texture2D = null;
+            try
+            {
+                texture2D = www.texture;
+                texture2D.Compress(false);
+                Sprite _sprite = Sprite.Create(texture2D, new Rect(0.0f, 0.0f, texture2D.width, texture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+                myObject.FloorSprite = _sprite;
+                _sprites.Add(_sprite);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+        }
     }
 
     private void Update()

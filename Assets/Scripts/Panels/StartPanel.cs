@@ -28,12 +28,12 @@ public class StartPanel : MonoBehaviour
         b_ChoseFlat.onClick.AddListener(OnChoseFlatClick);
     }
 
-    private void OnGalereyaClick()
+    public void OnGalereyaClick()
     {
         _manager.galereyaPanel.Show();
     }
 
-    private void OnOsobennostyClick()
+    public void OnOsobennostyClick()
     {
         _manager.osobennostyPanel.Show();
     }
@@ -66,7 +66,7 @@ public class StartPanel : MonoBehaviour
         }
     }
 
-    private void OnChoseFlatClick()
+    public void OnChoseFlatClick()
     {
         _manager.choseOnParameterPanel.Show();
     }
