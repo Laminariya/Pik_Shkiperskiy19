@@ -115,6 +115,7 @@ public class MyDataClass : MonoBehaviour
                 yield return StartCoroutine(_manager.createImagePng.LoadSpriteFromUrl(myObject));
                 count2++;
                 _manager.InfoStartPanel.text = str + "\r\n" + "Load Image: " +count2 + "/" + count;
+                //if(count2==20) yield break;
             }
         }
     }

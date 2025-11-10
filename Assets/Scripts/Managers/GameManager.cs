@@ -32,6 +32,18 @@ public class GameManager : MonoBehaviour
     {
         if(instance == null)
             instance = this;
+        
+// #if UNITY_ANDROID
+//         // Оптимизация для Android
+//         Application.targetFrameRate = 60;
+//         QualitySettings.vSyncCount = 0;
+//         
+//         // Настройка текструр
+//         Texture.streamingTextureDiscardUnusedMips = true;
+//
+//         // Ограничение памяти
+//         UnityEngine.Android.AndroidDevice.SetSustainedPerformanceMode(true);
+// #endif
     }
 
     void Start()

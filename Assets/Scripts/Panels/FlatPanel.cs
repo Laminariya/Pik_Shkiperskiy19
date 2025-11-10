@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class FlatPanel : MonoBehaviour
@@ -25,7 +26,8 @@ public class FlatPanel : MonoBehaviour
     private MyObject _myObject;
     private Sprite _spriteFloor;
     private GameManager _manager;
-    
+    private Coroutine _coroutine;
+
     public void Init()
     {
         _manager = GameManager.instance;
@@ -55,10 +57,21 @@ public class FlatPanel : MonoBehaviour
         Debug.Log(myObject.PathFloor);
         Debug.Log(myObject.UrlFurniture);
         Debug.Log(myObject.UrlFloor);
+        if(_coroutine!=null)
+            StopCoroutine(_coroutine);
+        _coroutine = StartCoroutine(LoadFloor());
     }
 
     public void Hide()
     {
+        if(_coroutine!=null)
+            StopCoroutine(_coroutine);
+        if (_myObject != null && _myObject.FloorSprite!=null)
+        {
+            Destroy(_myObject.FloorSprite.texture);
+            Destroy(_myObject.FloorSprite);
+            _myObject.FloorSprite = null;
+        }
         gameObject.SetActive(false);
     }
 
@@ -87,6 +100,38 @@ public class FlatPanel : MonoBehaviour
     private void OnBack()
     {
         Hide();
+    }
+
+    IEnumerator LoadFloor()
+    {
+        if (_myObject.UrlFloor == "") yield break;
+        
+        using (UnityWebRequest webRequest = UnityWebRequestTexture.GetTexture(_myObject.UrlFloor))
+        {
+            yield return webRequest.SendWebRequest();
+
+            Texture2D texture2D = null;
+            if (webRequest.result == UnityWebRequest.Result.Success)
+            {
+                Texture2D cashTexture2D = DownloadHandlerTexture.GetContent(webRequest);
+                //texture2D = DownloadHandlerTexture.GetContent(webRequest);
+                texture2D = new Texture2D(cashTexture2D.width, cashTexture2D.height, TextureFormat.RGBA4444, false);
+                texture2D.SetPixels(cashTexture2D.GetPixels());
+                texture2D.Apply();
+                texture2D.Compress(true);
+
+                Sprite _sprite = Sprite.Create(texture2D, new Rect(0.0f, 0.0f, texture2D.width, texture2D.height),
+                    new Vector2(0.5f, 0.5f), 100.0f);
+                _myObject.FloorSprite = _sprite;
+                if (b_Planer.enabled) Image.sprite = _myObject.FloorSprite;
+                Destroy(cashTexture2D);
+            }
+            else
+            {
+                Debug.LogError($"Ошибка загрузки: {webRequest.error}");
+            }
+                
+        }
     }
 
 }
