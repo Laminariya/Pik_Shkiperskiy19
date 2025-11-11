@@ -12,11 +12,11 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{142da8d4-512d-4f3e-19f9-87398ccb067f}</ProjectGuid>
+    <ProjectGuid>{e7b47515-93d1-6c06-5f39-5a3ead6418cc}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Unity.Collections.DocCodeSamples</AssemblyName>
+    <AssemblyName>Unity.Mobile.AndroidLogcat.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -25,7 +25,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Temp\Bin\Debug\Unity.Collections.DocCodeSamples\</OutputPath>
+    <OutputPath>Temp\Bin\Debug\Unity.Mobile.AndroidLogcat.Editor\</OutputPath>
     <DefineConstants>UNITY_2022_3_62;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -45,9 +45,69 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\PackageCache\com.unity.collections@1.2.4\DocCodeSamples.Tests\CollectionsAllocationExamples.cs" />
-    <Compile Include="Library\PackageCache\com.unity.collections@1.2.4\DocCodeSamples.Tests\CollectionsExamples.cs" />
-    <None Include="Library\PackageCache\com.unity.collections@1.2.4\DocCodeSamples.Tests\DocCodeSamples.Tests.asmdef" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatUserSettings.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcat.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatContextMenu.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\UI\AndroidLogcatFastListView.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatDeviceQuery.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatTagInformation.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatSettings.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatTags.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatCaptureVideo.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\PosixSignal.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatMessagesViews.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatQueryLayout.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\Tasks\AndroidLogcatTaskResult.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\UI\Splitter.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatSettingsProvider.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\Tasks\AndroidLogcatConnectToDeviceTask.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatUtilities.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatAutoSelect.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatCaptureScreenshot.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatEntry.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatIPWindow.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidTools\Paths.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatExtraWindow.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidMemoryStatistics.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidScreenRotation.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatColumnData.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\UI\AndroidLogcatSymbolList.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatBuildInfo.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\UI\AndroidLogcatReordableListWithReset.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidTools\Shell.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatConsoleWindow.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatVideoPlayer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatProjectSettingsProvider.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatSendTrimMemoryUsage.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatStacktraceWindow.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatStatusBar.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatLayoutViewerWindow.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AssemblyInfo.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatCallbacks.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatSessionSettings.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatRuntime.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatProcessInformation.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatAutoScroll.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatFilterOptions.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatInternalLog.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatMemoryViewer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatActivityManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatMessageProvider.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidKeyCode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\Tasks\AndroidLogcatDispatcher.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatInputs.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\Tasks\AndroidLogcatTaskInput.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidTools\AndroidTools.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\UI\AndroidLogcatReordableList.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatPriority.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatScreenCaptureWindow.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidTools\AndroidBridge.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatDevice.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatStyles.cs" />
+    <Compile Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\AndroidLogcatDeviceSelection.cs" />
+    <None Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\Unity.Mobile.AndroidLogcat.Editor.asmdef" />
+    <None Include="Library\PackageCache\com.unity.mobile.android-logcat@1.4.6\Editor\UI\Layouts\AndroidLogcatLayoutViewer.uxml" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -734,10 +794,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.Collections.csproj">
-      <Project>{3c8c391e-82c0-e2e7-3f70-97ddf557de89}</Project>
-      <Name>Unity.Collections</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
       <Project>{d6f49f22-90cd-ec29-c87b-35dc4d510e9b}</Project>
       <Name>UnityEditor.TestRunner</Name>

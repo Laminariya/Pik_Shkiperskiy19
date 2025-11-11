@@ -59,7 +59,8 @@ public class FlatPanel : MonoBehaviour
         Debug.Log(myObject.UrlFloor);
         if(_coroutine!=null)
             StopCoroutine(_coroutine);
-        _coroutine = StartCoroutine(LoadFloor());
+        if (_myObject.FloorSprite == null)
+            _coroutine = StartCoroutine(LoadFloor());
     }
 
     public void Hide()
