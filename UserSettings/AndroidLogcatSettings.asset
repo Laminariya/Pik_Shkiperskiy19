@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "qkdueucye6xgij4t",
+    "m_SelectedDeviceId": "RZ2Y4001TJD",
     "m_SelectedProcess": {
-        "deviceId": "qkdueucye6xgij4t",
+        "deviceId": "RZ2Y4001TJD",
         "name": "com.Maket.Pik_Shkiperskiy18",
-        "processId": 28011,
+        "processId": 15278,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -81,6 +81,96 @@
             "exited": false
         },
         {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 27787,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 29736,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 30333,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 31437,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 31995,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 697,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 1994,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 2977,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 3759,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 5040,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 7772,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 8251,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 8937,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 9376,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ2Y4001TJD",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 15278,
+            "exited": false
+        },
+        {
             "deviceId": "qkdueucye6xgij4t",
             "name": "com.Maket.Pik_Shkiperskiy18",
             "processId": 11606,
@@ -108,6 +198,24 @@
             "deviceId": "qkdueucye6xgij4t",
             "name": "com.Maket.Pik_Shkiperskiy18",
             "processId": 28011,
+            "exited": false
+        },
+        {
+            "deviceId": "qkdueucye6xgij4t",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 18399,
+            "exited": false
+        },
+        {
+            "deviceId": "qkdueucye6xgij4t",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 22562,
+            "exited": false
+        },
+        {
+            "deviceId": "qkdueucye6xgij4t",
+            "name": "com.Maket.Pik_Shkiperskiy18",
+            "processId": 28314,
             "exited": false
         }
     ],

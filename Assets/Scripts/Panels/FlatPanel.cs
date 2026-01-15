@@ -39,6 +39,8 @@ public class FlatPanel : MonoBehaviour
 
     public void Show(MyObject myObject)
     {
+        _manager.MessageOffAllLight();
+        _manager.MessageOnFlat(myObject.SendHouse, myObject.SendPorch, myObject.Number);
         _myObject = myObject;
         gameObject.SetActive(true);
 
@@ -53,10 +55,10 @@ public class FlatPanel : MonoBehaviour
         Floor.text = _myObject.Floor + " из " + _myObject.CountFloor;
         Korpus.text = _myObject.Korpus.ToString();
         OnPlanerClick();
-        Debug.Log(myObject.PathFurniture);
-        Debug.Log(myObject.PathFloor);
-        Debug.Log(myObject.UrlFurniture);
-        Debug.Log(myObject.UrlFloor);
+        // Debug.Log(myObject.PathFurniture);
+        // Debug.Log(myObject.PathFloor);
+        // Debug.Log(myObject.UrlFurniture);
+        // Debug.Log(myObject.UrlFloor);
         if(_coroutine!=null)
             StopCoroutine(_coroutine);
         if (_myObject.FloorSprite == null)

@@ -49,6 +49,8 @@ public class ChoseOnParameterPanel : MonoBehaviour
     private float _maxPrice;
     private int _minFloor;
     private int _maxFloor;
+
+    private Coroutine _coroutineShow;
     
     public void Init()
     {
@@ -76,6 +78,8 @@ public class ChoseOnParameterPanel : MonoBehaviour
 
     public void Hide()
     {
+        if(_coroutineShow!=null)
+            StopCoroutine(_coroutineShow);
         gameObject.SetActive(false);
     }
 
@@ -86,6 +90,13 @@ public class ChoseOnParameterPanel : MonoBehaviour
         _Korpus2 = -1;
         b_Korpus1.image.color = Color.white;
         b_Korpus2.image.color = Color.clear;
+        _manager.MessageOffAllLight();
+        _manager.MessageOnHouse(1, 1);
+        _manager.MessageOnHouse(1, 2);
+        _manager.MessageOnHouse(1, 3);
+        _manager.MessageOnHouse(1, 4);
+        _manager.MessageOnHouse(2, 1);
+        _manager.MessageOnHouse(2, 2);
     }
 
     public void ShowKorpus2()
@@ -95,12 +106,27 @@ public class ChoseOnParameterPanel : MonoBehaviour
         _Korpus2 = 2;
         b_Korpus1.image.color = Color.clear;
         b_Korpus2.image.color = Color.white;
+        _manager.MessageOffAllLight();
+        _manager.MessageOnHouse(3, 1);
+        _manager.MessageOnHouse(3, 2);
+        _manager.MessageOnHouse(3, 3);
+        _manager.MessageOnHouse(3, 4);
+        _manager.MessageOnHouse(3, 5);
+        _manager.MessageOnHouse(4, 1);
+        _manager.MessageOnHouse(4, 2);
     }
     
     private void OnShowClick()
     {
+        if(_coroutineShow!=null)
+            StopCoroutine(_coroutineShow);
+        _coroutineShow = StartCoroutine(ShowCoroutine());
+    }
+
+    IEnumerator ShowCoroutine()
+    {
         GameManager.instance.MessageOffAllLight();
-        Debug.Log(_1 + " " + _2 + " " + _3 + " " + _St);
+        //Debug.Log(_1 + " " + _2 + " " + _3 + " " + _St);
         for (int i = 0; i < _cartFlatPrefabs.Count; i++)
         {
             Destroy(_cartFlatPrefabs[i].gameObject);
@@ -124,6 +150,9 @@ public class ChoseOnParameterPanel : MonoBehaviour
                         cart.Init(myObject);
                         _cartFlatPrefabs.Add(cart);
                         cart.OnSendMessageOnComPort();
+                        if (myObject.FlatSprite == null)
+                            yield return StartCoroutine(_manager.createImagePng.LoadSpriteFromUrl(myObject));
+                        cart.Image.sprite = myObject.FlatSprite;
                     }
                 }
             }
@@ -132,6 +161,8 @@ public class ChoseOnParameterPanel : MonoBehaviour
 
     private void OnResetClick()
     {
+        if(_coroutineShow!=null)
+            StopCoroutine(_coroutineShow);
         _St = 0;
         _1 = -1;
         _2 = -1;
@@ -186,6 +217,7 @@ public class ChoseOnParameterPanel : MonoBehaviour
             _1 = -1;
         }
         ReloadSliders();
+        
     }
 
     private void On2Click()
@@ -201,6 +233,7 @@ public class ChoseOnParameterPanel : MonoBehaviour
             _2 = -1;
         }
         ReloadSliders();
+        
     }
 
     private void On3Click()

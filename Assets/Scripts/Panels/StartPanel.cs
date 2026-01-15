@@ -40,28 +40,32 @@ public class StartPanel : MonoBehaviour
 
     private void OnDemoClick()
     {
-        if (b_Demo.image.sprite == DemoOn)
+        if (b_Demo.image.sprite != DemoOn)
         {
             //Выключаем демо
             b_Demo.image.sprite = DemoOn;
+            _manager.MessageOnDemo();
         }
         else
         {
             b_Demo.image.sprite = DemoOff;
+            _manager.MessageOffAllLight();
             //Включаем демо
         }
     }
 
     public void OnLightClick()
     {
-        if (b_Light.image.sprite == LightOn)
+        if (b_Light.image.sprite == LightOff)
         {
             //Выключаем подсветку
             b_Light.image.sprite = LightOn;
+            
         }
         else
         {
             b_Light.image.sprite = LightOff;
+            _manager.MessageOffAllLight();
             //Включаем подсветку
         }
     }

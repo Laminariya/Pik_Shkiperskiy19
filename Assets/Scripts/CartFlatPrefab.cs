@@ -27,7 +27,8 @@ public class CartFlatPrefab : MonoBehaviour
         Price.text = GameManager.instance.GetSplitPrice(_myObject.Price) + " " + GameManager.instance.SymvolRuble;
         OldPrice.text = ""; //"<s>123</s>";
         PricePerMeter.text = Mathf.RoundToInt(_myObject.Price / _myObject.Area) + " за м" + GameManager.instance.SymvolQuadro;
-        KorpusFloor.text = "Корпус " + _myObject.Korpus + ", Этаж " + _myObject.Floor + " из " + _myObject.CountFloor;
+        KorpusFloor.text = "Корпус " + _myObject.Korpus + ", Секция " + _myObject.Section + ", Этаж " +
+                           _myObject.Floor + " из " + _myObject.CountFloor;
     }
 
     private void OnClick()

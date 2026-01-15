@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public CreateImagePNG createImagePng;
     [HideInInspector] public FlatPanel flatPanel;
     [HideInInspector] public ChoseOnParameterPanel choseOnParameterPanel;
+    [HideInInspector] public BluetoothManager bluetoothManager;
 
     public GameObject loadPanel;
     public TMP_Text InfoStartPanel;
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
         createImagePng = FindObjectOfType<CreateImagePNG>(true);
         flatPanel = FindObjectOfType<FlatPanel>(true);
         choseOnParameterPanel = FindObjectOfType<ChoseOnParameterPanel>(true);
+        bluetoothManager = FindObjectOfType<BluetoothManager>(true);
         
         await serializeXML.Init(this);
         
@@ -99,8 +101,9 @@ public class GameManager : MonoBehaviour
         
         Debug.Log("Load Panel");
         yield return StartCoroutine(createImagePng.Init());
-        yield return StartCoroutine(myDataClass.CreateSprites());
+        //yield return StartCoroutine(myDataClass.CreateSprites());
         
+        //StartButton.SetActive(true);
         loadPanel.SetActive(false);
     }
 
@@ -139,7 +142,7 @@ public class GameManager : MonoBehaviour
         if (isOn) str += "0300000000";
         else str += "0000000000";
         Debug.Log("Mess House");
-        //sendComPort.AddMessage(str);
+        bluetoothManager.AddMessage(str);
     }
 
     public void MessageOnFlat(int house, int porch, int flat, bool isOn = true)
@@ -156,6 +159,8 @@ public class GameManager : MonoBehaviour
         else f += "00000000";
         str += f;
         Debug.Log("Mess Flat");
+        
+        bluetoothManager.AddMessage(str);
         //sendComPort.AddMessage(str);
     }
 
@@ -178,13 +183,13 @@ public class GameManager : MonoBehaviour
     public void MessageOffAllLight()
     {
         Debug.Log("Mess OffAll");
-        //sendComPort.AddMessage("007F060100000000"); //Погасить всё!!!
+        bluetoothManager.AddMessage("007F060100000000"); //Погасить всё!!!
     }
 
     public void MessageOnDemo()
     {
         Debug.Log("Mess Demo");
-        //sendComPort.AddMessage("0064010000000000"); //Включить демо!
+        bluetoothManager.AddMessage("0064010000000000"); //Включить демо!
     }
 
     public void OnLogoClicked()

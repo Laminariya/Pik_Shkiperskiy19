@@ -115,7 +115,7 @@ public class MyDataClass : MonoBehaviour
                 yield return StartCoroutine(_manager.createImagePng.LoadSpriteFromUrl(myObject));
                 count2++;
                 _manager.InfoStartPanel.text = str + "\r\n" + "Load Image: " +count2 + "/" + count;
-                //if(count2==20) yield break;
+                if(count2==20) yield break;
             }
         }
     }
@@ -191,7 +191,7 @@ public class MyObject
         UrlFurniture = ObjectClass.Image2D;
         UrlFloor = ObjectClass.ImageFloorPlan;
         Status = ObjectClass.Status;
-        Section = 1;
+        Section = int.Parse(ObjectClass.Location.Section);
         BuioldingSection = ObjectClass.BuildingSection;
 
         string id = Korpus + "_" + Number;

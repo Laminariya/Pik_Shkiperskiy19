@@ -30,8 +30,11 @@ public class BluetoothManager : MonoBehaviour
 
     private int _countError;
     private bool _isConnecting;
+    private string _keyMac = "MAC";
     
     private Queue<string> _queue = new Queue<string>();
+    private float _delay = 0.1f;
+    private float _timer;
 
     //private SendComPort _sendCom;
     // Start is called before the first frame update
@@ -39,19 +42,27 @@ public class BluetoothManager : MonoBehaviour
     {
         //_sendCom = FindObjectOfType<SendComPort>(true);
         //_sendCom.Init();
-        MenuPanel.SetActive(true);
+        MenuPanel.SetActive(false);
         InitBluetooth();
         _countError = 0;
         isConnected = false;
         b_GetPairedDevices.onClick.AddListener(GetPairedDevices);
         BluetoothName.text = "";
-        GetPairedDevices();
+
+        if (PlayerPrefs.HasKey(_keyMac))
+        {
+            OnClickConnect(PlayerPrefs.GetString(_keyMac));
+        }
+
+        _timer = 0;
+        //GetPairedDevices();
     }
 
     private void Update()
     {
-        if (_queue.Count > 0)
+        if (_queue.Count > 0 && Time.time - _timer>_delay)
         {
+            _timer = Time.time;
             WriteData(_queue.Dequeue());
         }
     }
@@ -156,7 +167,9 @@ public class BluetoothManager : MonoBehaviour
         BluetoothName.text += mac + "\r\n";
         string[] strings = mac.Split('+');
         StartConnection(strings[0]);
+        PlayerPrefs.SetString("MAC", strings[0]);
         MenuPanel.SetActive(false);
+        isConnected = true;
     }
 
     // Start BT connect using device MAC address "deviceAdd"
@@ -220,8 +233,9 @@ public class BluetoothManager : MonoBehaviour
 
         if (isConnected)
         {
-            InfoData.text += " " + message;
-            BluetoothConnector.CallStatic("WriteData",  message);
+            //InfoData.text += " " + message;
+            Debug.Log("MESS: "+message);
+            BluetoothConnector.CallStatic("WriteData", message+"\r\n"); // 
             //0064010000000000
             //receivedData.text += "=> " + message + "\n\r";
             //OnAddError();
